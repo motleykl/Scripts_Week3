@@ -1,5 +1,9 @@
 # Shell Scripts and More Bash Commands
 
+script=generic term; short code that is saved in a plain text file 
+  .sh = shell (shell script)
+  needs extension, line at top for bash commands, permissions 
+
 ## Variables
 
 You can create a variable and assign it a value using `=`
@@ -11,6 +15,10 @@ Note that bash is sensitive to spaces! Don't leave any spaces before or after yo
 You can print the value of a variable by using `echo` and prefacing the name of the variable with `$`
 
 `echo $myVariable`
+
+typing=dif types variables (string, integer, etc)
+
+scope is where variable is 
 
 ## Math in Bash
 
@@ -177,6 +185,7 @@ Scripts can be written to use command-line arguments. To access the arguments fr
 
 For practice, go back to `myScript.sh` that we created earlier and change `$USER` to `$1`. Now, run it by typing `myScript.sh <YOUR_NAME>`
 
+assignment 
 ```
 Practice Exercise 2 (Math Script)
 
