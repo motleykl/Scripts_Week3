@@ -45,7 +45,10 @@ echo $myVar
 echo $myVar
 ```
 
-What does the `++` operator do?
+What does the `++` operator do?  ADDS 1 each time; increment operator; 
+doing -- subtracts one 
+doesnt check to make sure youre actually doing it with numbers, will give you some result even if just text
+
 
 ## Downloading a file from the command line
 
@@ -55,7 +58,9 @@ While we could copy and paste the contents of this file into a new file using th
 
 `curl https://raw.githubusercontent.com/FoundCompBio-Spr24/Scripts_Week3/main/chiari.summary_statistics.csv`
 
+
 What happens? How could we save the contents that we're downloading to a file directly?
+want to >> (redirect) into file into system; curl just like spits out the data onto the line
 
 ## Searching Within Files
 
@@ -299,3 +304,15 @@ else
     echo "greater than seven"
 fi
 ```
+
+## chmod +x myScript.sh
+cat to show full script 
+./myScript.sh shows results
+can add together typing and numbers within the echo command in the sh 
+myNum % myOtherNum gives remainder 
+  helps with giving you info for every like 100th step, periodic status updates, tells you if something is a multiple (remainder is 0) 
+
+  if make variable in session but dont save in file, it will only exist in that session
+  can add to file with >> ex: $myWord >> varValue.txt
+
+test indiv line of code before saving it all together to make sure it works properly
