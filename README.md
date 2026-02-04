@@ -30,6 +30,8 @@ In general, bash isn't very good for mathematical operations, but it can be done
 - `echo $(( 20 / 3 ))`
 - `echo $(( 20 % 3 ))`
 
+more flexible with spaces etc within parentheses
+
 Compare the output of these last two lines? What's going on?
 
 NOTE: bash can only handle _integers_ and not floating-point numbers (i.e., decimals)
@@ -90,6 +92,17 @@ will only look for the string `five` if it is at the end of a line.
 
 There are many other possible patterns that can be used with `grep`. If you search online for grep cheat sheets, you can find a lot more information.
 
+*=wildcard; symbol that can take the place of a bunch of differnt things
+. represents single arbitrary number
+* as many
+  so need to do .* when searching with grep in bash:
+my_ENSGALG00000000811.macse_DNA_gb,621,10,0.0623,0.2657,0,0.00026273,1
+
+if have space in text, do "" : grep "Number Taxa" chiari.summary.statistics.txt 
+or can do \ (tells you that you want it to interpret symbol in exact way (dont follow whatever command that symbol usually has): grep Number\ Taxa chiari.summary.statistics.txt 
+
+
+  
 ## Redirecting Output Streams
 
 In the examples above, the output of the display commands (like `cat`, `head`, and `tail`) were all sent to the Terminal screen. However, there are many times when it is preferable to send this output to a file or even as the input to another command!
@@ -122,6 +135,8 @@ myVariable=`ls | head -n1`
 
 ## Parsing File Contents
 
+need to know which column want ahead of time 
+
 Another very powerful command is called `awk`, which can do lots of different forms of text parsing. For the purposes of this course, we will focus on using `awk` to extract individual columns (generally separated by spaces or tabs) from a file. [Note that this can also be done with the `cut` command.] The syntax we will use looks like this
 
 `awk '{print $1}' test.txt`
@@ -133,6 +148,10 @@ This will print out the first column. To print the third column, we would use
 To print both the first and third columns, we could do this
 
 `awk '{print $1,$3}' test.txt`
+
+awk -F, '{print $2,$4}' chiari.summary.statistics.txt  [the -F fixes it to make sure it doesnt care about spaces
+
+awk -F, '{print $2,$4}' chiari.summary.statistics.txt | grep 11$ | awk '{print $1}' [strings these commands all together] 
 
 ## Command line find-and-replace
 
@@ -199,6 +218,13 @@ Practice Exercise 2 (Math Script)
 (3) Inside the script, multiply the two numbers and then subtract the second number from the product
 (4) Print the result to the screen.
 ```
+ #! /bin/bash
+echo "the result of $1 * $2 is "$(($1 * $2))
+can add any number bc use $:
+[motleykl@mike1 ~]$ ./myScript.sh 9 4
+the result of 9 * 4 is 36 
+
+can send result to file with >> ./myScript.sh 9 4 >> myResult.txt
 
 ## If...Else
 
@@ -316,3 +342,10 @@ myNum % myOtherNum gives remainder
   can add to file with >> ex: $myWord >> varValue.txt
 
 test indiv line of code before saving it all together to make sure it works properly
+
+grep 811 chiari.summary.statistics.txt | wc - l
+  using pipe then wc (wordcount) gives you number of lines 
+
+  can do ls too 
+
+  ^ anchors something at beginning of line
