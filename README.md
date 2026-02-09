@@ -169,12 +169,16 @@ awk -F, '{print $2,$4}' chiari.summary.statistics.txt | grep 11$ | awk '{print $
 You'll often need to clean up the contents of data files before doing additional analyses. In this case, we'd like to replace commas with spaces. To do this from the command line, we can use a powerful tool called `sed`. `sed`, which is short for "stream editor", can do many different things, but we'll just use it for simple find-and-replace for now. Try executing this
 
 `sed 's/,/ /g' chiari.summary_statistics.csv`
+-pretty much same syntax
+- 's/<find>/<replace>/g'
+PERMANENT CHANGE, so use copy of file or use i flag:
 
 What do you see? What's different compared to the original contents of the file?
 
 What about when you run this?
 
-`sed -i "_backup" 's/,/ /g' chiari.summary_statistics.csv`
+`sed -i"_backup" 's/,/ /g' chiari.summary_statistics.csv`
+NO SPACE BW i and suffix
 
 Note that this syntax will stay the same for any find and replace operation that we want to do. The only thing that will change is the text to find and replace (between the slashes).
 
