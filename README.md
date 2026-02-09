@@ -20,6 +20,17 @@ typing=dif types variables (string, integer, etc)
 
 scope is where variable is 
 
+to automatically use number result from code 
+ex:
+wc -l <data>
+gives : number name
+so use pipe: wc -l chiari.summary.statistics.txt | awk '{print $1}'
+only prints number
+use backtick (on tilde key) ` : tells bash to do command first
+`wc -l chiari.summary.statistics.txt | awk '{print $1}'`
+
+
+
 ## Math in Bash
 
 In general, bash isn't very good for mathematical operations, but it can be done in several ways. Probably the easiest is to wrap a mathematical expression in _double_ parentheses and precede it with a `$`, since you pretty much always want the _value_ of the mathematical result.
